@@ -28,10 +28,14 @@ public class TransformGizmos : NSObject {
     public var editingSpace: Space!{
         willSet{
             UpdateAxesRotation(editingSpace: newValue)
+            NotificationCenter.default.post(name: TGNotifications.editingSpaceChanged, object: nil, userInfo: ["newValue" : newValue!])
         }
     }
     
     public var currentTransformType: TransformType!{
+        willSet{
+            NotificationCenter.default.post(name: TGNotifications.transformTypeChanged, object: nil, userInfo: ["newValue" : newValue!])
+        }
         didSet{
             guard sceneView != nil && node != nil else {return}
             drawGizmo(sceneView: sceneView, targetNode: node)
@@ -58,6 +62,8 @@ public class TransformGizmos : NSObject {
     public override init() {
         editingSpace = Space.local
         currentTransformType = TransformType.translate
+        NotificationCenter.default.post(name: TGNotifications.transformTypeChanged, object: nil, userInfo: ["newValue" : currentTransformType!])
+        NotificationCenter.default.post(name: TGNotifications.editingSpaceChanged, object: nil, userInfo: ["newValue" : editingSpace!])
         scaleMultiplier = 1
         gizmoSize = 1
     }

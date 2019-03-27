@@ -13,6 +13,7 @@
 		39A898FF224B87DE00386AF9 /* TransformGizmos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A898FA224B87DD00386AF9 /* TransformGizmos.swift */; };
 		39A89900224B87DE00386AF9 /* SCNNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A898FB224B87DD00386AF9 /* SCNNode+Extensions.swift */; };
 		39A89901224B87DE00386AF9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A898FC224B87DD00386AF9 /* Constants.swift */; };
+		39DDDD55224BC1B500646F85 /* TGNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39DDDD54224BC1B500646F85 /* TGNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		39A898FA224B87DD00386AF9 /* TransformGizmos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformGizmos.swift; sourceTree = "<group>"; };
 		39A898FB224B87DD00386AF9 /* SCNNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SCNNode+Extensions.swift"; sourceTree = "<group>"; };
 		39A898FC224B87DD00386AF9 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		39DDDD54224BC1B500646F85 /* TGNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGNotifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		39A898EF224B874600386AF9 /* IOSTransformGizmos */ = {
 			isa = PBXGroup;
 			children = (
+				39DDDD54224BC1B500646F85 /* TGNotifications.swift */,
 				39A898FC224B87DD00386AF9 /* Constants.swift */,
 				39A898FB224B87DD00386AF9 /* SCNNode+Extensions.swift */,
 				39A898F9224B87DD00386AF9 /* SCNQuaternion+Extensions.swift */,
@@ -149,6 +152,7 @@
 				39A89901224B87DE00386AF9 /* Constants.swift in Sources */,
 				39A89900224B87DE00386AF9 /* SCNNode+Extensions.swift in Sources */,
 				39A898FE224B87DE00386AF9 /* SCNQuaternion+Extensions.swift in Sources */,
+				39DDDD55224BC1B500646F85 /* TGNotifications.swift in Sources */,
 				39A898FD224B87DE00386AF9 /* SCNVector3+Extensions.swift in Sources */,
 				39A898FF224B87DE00386AF9 /* TransformGizmos.swift in Sources */,
 			);
