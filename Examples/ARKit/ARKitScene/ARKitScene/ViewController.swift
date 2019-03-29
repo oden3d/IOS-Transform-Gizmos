@@ -62,6 +62,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(transformTypeChanged), name: TGNotifications.transformTypeChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(editingSpaceChanged), name: TGNotifications.editingSpaceChanged, object: nil)
         transformGizmos = TransformGizmos()
+        transformGizmos.scaleMultiplier = 3
     }
     
     @objc func editingSpaceChanged(notification: Notification){

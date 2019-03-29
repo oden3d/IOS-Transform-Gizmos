@@ -126,6 +126,7 @@ public class TransformGizmos : NSObject {
         }
         
         returnNode.name = nodeName
+        returnNode.castsShadow = false
         return returnNode
     }
     
@@ -425,7 +426,7 @@ public class TransformGizmos : NSObject {
     public func renderer() {
         guard sceneView != nil && node != nil && xAxis != nil && yAxis != nil && zAxis != nil else {return}
         let distance = simd_distance((sceneView.pointOfView?.simdPosition)!, node.simdWorldPosition)
-        let scale = distance * 0.2 * gizmoSize
+        let scale = distance * 0.15 * gizmoSize
         let scaleVector = SCNVector3(scale, scale, scale)
         xAxis.scale = scaleVector
         yAxis.scale = scaleVector
