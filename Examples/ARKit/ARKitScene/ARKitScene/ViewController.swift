@@ -35,21 +35,26 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let height = UIScreen.main.bounds.height
         
         switchSpaceButton = UIButton(frame: CGRect(x: 0, y: 0, width: width / 2.5, height: height / 10))
-        switchSpaceButton.backgroundColor = .gray
+        switchSpaceButton.backgroundColor = UIColor.darkGray
+        switchSpaceButton.layer.cornerRadius = 25
+        switchSpaceButton.layer.masksToBounds = true
         switchSpaceButton.addTarget(self, action: #selector(onSwitchSpaceButtonTapped), for: .touchUpInside)
         
         translateButton = UIButton(frame: CGRect(x: 0, y: height - height / 9, width: width / 3, height: height / 9))
-        translateButton .backgroundColor = UIColor(red: 0.0, green: 0.977, blue: 0.0, alpha: 1.0)
+        translateButton.layer.cornerRadius = 25
+        translateButton.layer.masksToBounds = true
         translateButton.setTitle("Move", for: .normal)
         translateButton.addTarget(self, action: #selector(onMoveButtonTapped), for: .touchUpInside)
         
         rotateButton = UIButton(frame: CGRect(x: width / 3 , y: height - height / 9, width: width / 3, height: height / 9))
-        rotateButton.backgroundColor = UIColor(red: 1.0, green: 0.149, blue: 0.0, alpha: 1.0)
+        rotateButton.layer.cornerRadius = 25
+        rotateButton.layer.masksToBounds = true
         rotateButton.setTitle("Rotate", for: .normal)
         rotateButton.addTarget(self, action: #selector(onRotateButtonTapped), for: .touchUpInside)
         
         scaleButton = UIButton(frame: CGRect(x: width / 3 * 2 , y: height - height / 9, width: width / 3, height: height / 9))
-        scaleButton.backgroundColor = UIColor(red: 0.017, green: 0.198, blue: 1.0, alpha: 1.0)
+        scaleButton.layer.cornerRadius = 25
+        scaleButton.layer.masksToBounds = true
         scaleButton.setTitle("Scale", for: .normal)
         scaleButton.addTarget(self, action: #selector(onScaleButtonTapped), for: .touchUpInside)
         
@@ -76,17 +81,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let transformType = data["newValue"]
         switch transformType! {
         case .translate:
-            translateButton.alpha = 0.4
-            rotateButton.alpha = 1
-            scaleButton.alpha = 1
+            translateButton.backgroundColor = UIColor.orange
+            rotateButton.backgroundColor = UIColor.clear
+            scaleButton.backgroundColor = UIColor.clear
         case .rotate:
-            translateButton.alpha = 1
-            rotateButton.alpha = 0.4
-            scaleButton.alpha = 1
+            translateButton.backgroundColor = UIColor.clear
+            rotateButton.backgroundColor = UIColor.orange
+            scaleButton.backgroundColor = UIColor.clear
         case .scale:
-            translateButton.alpha = 1
-            rotateButton.alpha = 1
-            scaleButton.alpha = 0.4
+            translateButton.backgroundColor = UIColor.clear
+            rotateButton.backgroundColor = UIColor.clear
+            scaleButton.backgroundColor = UIColor.orange
         }
     }
     

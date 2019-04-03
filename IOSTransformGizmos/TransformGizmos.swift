@@ -89,7 +89,7 @@ public class TransformGizmos : NSObject {
         
         switch transformType {
         case .translate:
-            let cylinder = SCNCylinder(radius: 0.02, height: 1)
+            let cylinder = SCNCylinder(radius: 0.015, height: 1)
             cylinder.firstMaterial = material
             let cylinderNode = SCNNode(geometry: cylinder)
             
@@ -109,7 +109,7 @@ public class TransformGizmos : NSObject {
             torus.firstMaterial = material
             returnNode = SCNNode(geometry: torus)
         case .scale:
-            let cylinder = SCNCylinder(radius: 0.02, height: 1)
+            let cylinder = SCNCylinder(radius: 0.015, height: 1)
             cylinder.firstMaterial = material
             let cylinderNode = SCNNode(geometry: cylinder)
             
@@ -251,16 +251,16 @@ public class TransformGizmos : NSObject {
         
         if selectedAxis != nil {
             if selectedAxis == xAxis{
-                yAxis.opacity = 0.1
-                zAxis.opacity = 0.1
+                yAxis.opacity = 0.05
+                zAxis.opacity = 0.05
             }
             else if selectedAxis == yAxis{
-                xAxis.opacity = 0.1
-                zAxis.opacity = 0.1
+                xAxis.opacity = 0.05
+                zAxis.opacity = 0.05
             }
             else if selectedAxis == zAxis{
-                xAxis.opacity = 0.1
-                yAxis.opacity = 0.1
+                xAxis.opacity = 0.05
+                yAxis.opacity = 0.05
             }
         }
     }
@@ -425,8 +425,10 @@ public class TransformGizmos : NSObject {
     
     public func renderer() {
         guard sceneView != nil && node != nil && xAxis != nil && yAxis != nil && zAxis != nil else {return}
-        let distance = simd_distance((sceneView.pointOfView?.simdPosition)!, node.simdWorldPosition)
-        let scale = distance * 0.15 * gizmoSize
+        let cameraNode = sceneView.pointOfView
+        let distance = simd_distance((cameraNode?.simdPosition)!, node.simdWorldPosition)
+        let FOVScale = (cameraNode?.camera!.fieldOfView)! / 60
+        let scale = distance * 0.2 * Float(FOVScale) * gizmoSize
         let scaleVector = SCNVector3(scale, scale, scale)
         xAxis.scale = scaleVector
         yAxis.scale = scaleVector
